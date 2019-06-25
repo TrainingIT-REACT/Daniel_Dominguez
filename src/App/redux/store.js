@@ -1,7 +1,12 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
+import thunk from "redux-thunk";
+import promise from "redux-promise-middleware";
 
 // Reducers
-import todos from "./reducers/todos";
-import user from "./reducers/user";
+import songs from "./reducers/songs";
+import albums from "./reducers/albums";
 
-export default createStore(combineReducers({ todos, user }));
+export default createStore(
+  combineReducers({ albums, songs }),
+  applyMiddleware(thunk, promise())
+);
