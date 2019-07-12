@@ -1,40 +1,30 @@
 import React, { Component } from "react";
 
-import { NavLink } from "react-router-dom";
+import HeaderItem from "./HeaderItem";
 
 class Header extends Component {
-  active = {
-    fontWeight: "bold",
-    color: "red"
-  };
-
-  header = {
-    display: "flex",
-    justifyContent: "space-evenly",
-    listStyle: "none"
-  };
-
   render() {
     return (
-      <div style={this.header}>
-        <NavLink exact to="/" activeStyle={this.active}>
-          Home
-        </NavLink>
-
-        <NavLink to="/albums" activeStyle={this.active}>
-          Albums
-        </NavLink>
-
-        <NavLink to="/auth" activeStyle={this.active}>
-          Login
-        </NavLink>
-
-        <NavLink to="/profile" activeStyle={this.active}>
-          Profile
-        </NavLink>
+      <div style={styles.header}>
+        <HeaderItem path="/" title="Home" />
+        <HeaderItem path="/albums" title="Albums" />
+        <HeaderItem path="/auth" title="Login" />
+        <HeaderItem path="/profile" title="Profile" />
       </div>
     );
   }
 }
+
+const styles = {
+  header: {
+    backgroundColor: "red",
+    height: 40,
+    display: "flex",
+    justifyContent: "space-evenly"
+  },
+  active: {
+    fontStyle: "bold"
+  }
+};
 
 export default Header;
