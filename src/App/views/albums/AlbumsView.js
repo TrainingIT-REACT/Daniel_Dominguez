@@ -21,12 +21,12 @@ export default class AlbumsView extends Component {
     if (props.albums) {
       return { albums: props.albums };
     }
+    console.log(props.albumsHistory);
     return null;
   }
 
   alreadySeen(id) {
     const { albumsHistory } = this.props;
-    console.log(albumsHistory);
     return albumsHistory.has(id);
   }
 

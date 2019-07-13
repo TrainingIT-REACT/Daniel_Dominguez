@@ -16,6 +16,7 @@ import Auth from "./views/auth/AuthContainer";
 import Profile from "./views/profile/ProfileContainer";
 
 import Header from "./containers/Header";
+import Player from "./containers/Player";
 
 const { store, persistor } = configureStore();
 
@@ -26,6 +27,7 @@ const App = () => (
     <PersistGate loading={null} persistor={persistor}>
       <Router>
         <Header />
+        <Player />
         <div className="App container">
           <Route path="/" exact component={Home} />
           <Route path="/albums" exact component={Albums} />

@@ -6,7 +6,8 @@ export default {
 
   // Songs
   SONGS: {
-    LIST: "SONGS_LIST"
+    LIST: "SONGS_LIST",
+    MUSIC: "SONGS_MUSIC"
   },
 
   HISTORY: {

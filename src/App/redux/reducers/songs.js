@@ -1,10 +1,13 @@
 import { getSongs } from "../actions/songs";
 
+import ActionTypes from "../actions/types";
+
 // Estado inicial
 const initialState = {
   isLoading: false,
   list: [],
-  error: false
+  error: false,
+  songSelected: null
 };
 
 // Implementamos el reducer
@@ -28,6 +31,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: true
+      };
+
+    case ActionTypes.SONGS.MUSIC:
+      return {
+        ...state,
+        songSelected: action.payload
       };
     default:
       return state;

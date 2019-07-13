@@ -20,7 +20,10 @@ const reducer = (state = initialState, action) => {
       };
 
     case ActionTypes.HISTORY.CLEAN:
-      return initialState;
+      return {
+        songs: new Set(),
+        albums: new Set()
+      };
 
     default:
       return state;

@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import ReactAudioPlayer from "react-audio-player";
+
+import music from "../../assets/music.mp3";
 
 export default class HomeView extends Component {
   componentDidMount() {
