@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactAudioPlayer from "react-audio-player";
 
 import music from "../../assets/music.mp3";
+import Song from "../../containers/Song";
 
 export default class HomeView extends Component {
   componentDidMount() {
@@ -27,7 +28,9 @@ export default class HomeView extends Component {
       <React.Suspense fallback="Cargando los albums">
         <div>
           <h1>Estas son nuestras sugerencias</h1>
-          <p>{JSON.stringify(recommendedSongs)}</p>
+          {recommendedSongs.map(song => (
+            <Song song={song} />
+          ))}
         </div>
       </React.Suspense>
     );

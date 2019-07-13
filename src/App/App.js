@@ -25,17 +25,19 @@ persistor.purge();
 const App = () => (
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <Router>
-        <Header />
-        <Player />
-        <div className="App container">
-          <Route path="/" exact component={Home} />
-          <Route path="/albums" exact component={Albums} />
-          <Route path="/albums/:id" component={Albums} />
-          <Route path="/profile" exact component={Profile} />
-          <Route path="/auth" exact component={Auth} />
-        </div>
-      </Router>
+      <div style={{ height: "100%" }}>
+        <Router>
+          <Header />
+          <Player />
+          <div style={{ flex: 1 }}>
+            <Route path="/" exact component={Home} />
+            <Route path="/albums" exact component={Albums} />
+            <Route path="/albums/:id" component={Albums} />
+            <Route path="/profile" exact component={Profile} />
+            <Route path="/auth" exact component={Auth} />
+          </div>
+        </Router>
+      </div>
     </PersistGate>
   </Provider>
 );
