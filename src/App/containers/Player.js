@@ -71,7 +71,7 @@ class Player extends Component {
           ref={element => {
             this.player = element;
           }}
-          src={music}
+          src={path ? music : null}
           autoPlay
           controls
         />

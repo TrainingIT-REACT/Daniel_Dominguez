@@ -20,7 +20,7 @@ class Header extends Component {
 
 const styles = {
   header: {
-    backgroundColor: "red",
+    backgroundColor: "grey",
     height: 40,
     display: "flex",
     justifyContent: "space-evenly"
