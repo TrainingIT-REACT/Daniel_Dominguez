@@ -14,32 +14,55 @@ import Home from "./views/home/HomeContainer";
 import Albums from "./views/albums/AlbumsContainer";
 import Auth from "./views/auth/AuthContainer";
 import Profile from "./views/profile/ProfileContainer";
+import PlayerView from "./views/player/PlayerContainer";
 
 import Header from "./containers/Header";
 import Player from "./containers/Player";
+import PrivateRoute from "./containers/PrivateRoute";
+import UserContext from "./contexts/user";
 
 const { store, persistor } = configureStore();
-
 persistor.purge();
 
-const App = () => (
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-      <div style={{ height: "100%" }}>
-        <Router>
-          <Header />
-          <Player />
-          <div style={{ flex: 1 }}>
-            <Route path="/" exact component={Home} />
-            <Route path="/albums" exact component={Albums} />
-            <Route path="/albums/:id" component={Albums} />
-            <Route path="/profile" exact component={Profile} />
-            <Route path="/auth" exact component={Auth} />
-          </div>
-        </Router>
-      </div>
-    </PersistGate>
-  </Provider>
-);
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    // Bind de los métodos
+    this.updateUser = this.updateUser.bind(this);
+
+    this.state = {
+      signedIn: false,
+      updateUser: this.updateUser
+    };
+  }
+
+  updateUser(signedIn) {
+    this.setState(() => ({ signedIn }));
+  }
+
+  render() {
+    return (
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <Router>
+            <UserContext.Provider value={this.state}>
+              <Header />
+              <Player />
+              <div className="App container">
+                <Route path="/" exact component={Home} />
+                <Route path="/albums" exact component={Albums} />
+                <Route path="/albums/:id" component={Albums} />
+                <Route path="/auth" exact component={Auth} />
+                <Route path="/song/:id" exact component={PlayerView} />
+                <PrivateRoute path="/profile" component={Profile} />
+              </div>
+            </UserContext.Provider>
+          </Router>
+        </PersistGate>
+      </Provider>
+    );
+  }
+}
 
 export default App;

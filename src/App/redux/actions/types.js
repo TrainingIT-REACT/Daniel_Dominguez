@@ -14,5 +14,10 @@ export default {
     ADD_SONG: "ADD_SONG",
     ADD_ALBUM: "ADD_ALBUM",
     CLEAN: "CLEAN"
+  },
+
+  USER: {
+    LOGIN: "LOGIN",
+    LOGOUT: "LOGOUT"
   }
 };

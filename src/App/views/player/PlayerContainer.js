@@ -1,11 +1,17 @@
 import { connect } from "react-redux";
-import View from "./PlayerView";
+import PlayerView from "./PlayerView";
 
-const mapStateToProps = state => ({});
+import { getSongs } from "../../redux/actions/songs";
 
-const mapDispatchToProps = dispatch => ({});
+const mapStateToProps = state => ({
+  songs: state.songs.list
+});
+
+const mapDispatchToProps = dispatch => ({
+  getSongs: () => dispatch(getSongs())
+});
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(View);
+)(PlayerView);

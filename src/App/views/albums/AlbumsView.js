@@ -27,7 +27,8 @@ export default class AlbumsView extends Component {
 
   alreadySeen(id) {
     const { albumsHistory } = this.props;
-    return albumsHistory.has(id);
+    if (albumsHistory instanceof Set) return albumsHistory.has(id);
+    return false;
   }
 
   renderDetailedAlbum() {

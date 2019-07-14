@@ -9,16 +9,17 @@ import promise from "redux-promise-middleware";
 import songs from "./reducers/songs";
 import albums from "./reducers/albums";
 import history from "./reducers/history";
+import user from "./reducers/user";
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["history"]
+  whitelist: ["history", "user"]
 };
 
 const persistedReducer = persistReducer(
   persistConfig,
-  combineReducers({ albums, songs, history })
+  combineReducers({ albums, songs, history, user })
 );
 
 export default () => {

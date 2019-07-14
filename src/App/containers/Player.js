@@ -6,6 +6,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 import { Button } from "@material-ui/core";
 
 import { playSong } from "../redux/actions/songs";
+import { addSong } from "../redux/actions/history";
 
 class Player extends Component {
   constructor(props) {
