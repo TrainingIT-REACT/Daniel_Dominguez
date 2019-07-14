@@ -6,7 +6,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 import { Button } from "@material-ui/core";
 
 import { playSong } from "../redux/actions/songs";
-import { addSong } from "../redux/actions/history";
+import music from "../assets/music.mp3";
 
 class Player extends Component {
   constructor(props) {
@@ -71,7 +71,7 @@ class Player extends Component {
           ref={element => {
             this.player = element;
           }}
-          src={path}
+          src={music}
           autoPlay
           controls
         />
